@@ -16,6 +16,7 @@ Pygame is a set of Python modules designed for writing video games. Pygame adds 
 **Installation via the terminal**
 
 1. Create a virtual environment
+
     ```mkvirtualenv test_pygame```
 
 2. Install pip3 if you do not have it_(I am using python3)_
@@ -25,17 +26,19 @@ Pygame is a set of Python modules designed for writing video games. Pygame adds 
     ```$ pip3 --version```
 
 3. Install pygame
+
     ```$ pip3 install pygame```
 
 4. Test for successfull installation
 
     ```python3 -m pygame.examples.aliens```
 
-    OR
+OR
 
 Enter into the interactive shell, type:
-        ```python3```
-        ```import pygame```
+    ```python3```
+    ```import pygame```
+
 (If no error message appears, then installation was successfull)
 
 ![Example Game](pygame_demo.png)
