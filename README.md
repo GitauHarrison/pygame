@@ -36,6 +36,7 @@ Pygame is a set of Python modules designed for writing video games. Pygame adds 
 OR
 
 Enter into the interactive shell, type:
+
     ```python3```
     ```import pygame```
 
