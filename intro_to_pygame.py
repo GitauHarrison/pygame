@@ -15,8 +15,6 @@ game_display = pygame.display.set_mode((display_width, display_height))
 # TODO 5: Update the game window caption
 pygame.display.set_caption('Intro to Pygame')
 
-pygame.display.update()
-
 # TODO 4: Learn how to close the game display using the keyboard
 def event_handler():
     for event in pygame.event.get():
