@@ -18,7 +18,7 @@ pygame.display.set_caption('Intro to Pygame')
 pygame.display.update()
 
 # TODO 4: Learn how to close the game display using the keyboard
-while True:
+def event_handler():
     for event in pygame.event.get():
         if event.type == pygame.QUIT or (
             event.type == pygame.KEYDOWN and (
@@ -27,3 +27,6 @@ while True:
             )):
             pygame.quit()
             quit()
+while True:
+    event_handler()
+    pygame.display.update()
