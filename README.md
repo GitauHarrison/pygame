@@ -37,8 +37,8 @@ OR
 
 Enter into the interactive shell, type:
 
-    ```python3```
-    ```import pygame```
+```python3```
+```import pygame```
 
 (If no error message appears, then installation was successfull)
 
