@@ -1,6 +1,7 @@
 # Pygame
 
 **What is pygame**
+
 Pygame is a set of Python modules designed for writing video games. Pygame adds functionality on top of the excellent SDL library. This allows you to create fully featured games and multimedia programs in the python language.
 
 **Prerequisites**
@@ -27,8 +28,9 @@ _(I am using python3)_
     ```pip3 install pygame```
 
 4. Test for successfull installation
+
     To enter into the interactive shell, type:
-        ```python```
+        ```python3```
         ```import pygame```
     (If no error, then installation was successfull)
 
