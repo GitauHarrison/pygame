@@ -24,7 +24,7 @@ Pygame is a set of Python modules designed for writing video games. Pygame adds 
     ```$ sudo update```
 
     ```$ sudo apt install python3-pip```
-    
+
     ```$ pip3 --version```
 
 3. Install pygame
@@ -33,16 +33,16 @@ Pygame is a set of Python modules designed for writing video games. Pygame adds 
 
 4. Test for successfull installation
 
-    ```python3 -m pygame.examples.aliens```
+    ```$ python3 -m pygame.examples.aliens```
 
 OR
 
 Enter into the interactive shell, type:
 
-```python3```
+```>>> python3```
 
-```import pygame```
+```>>> import pygame```
 
-(If no error message appears, then installation was successfull)
+_If no error message appears, then installation was successfull_
 
 ![Example Game](pygame_demo.png)
