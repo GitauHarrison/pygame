@@ -1,3 +1,7 @@
+# !python 3
+# flying_plane.py - prevent the plane from getting knocked down by avoiding oncoming collision
+# https://realpython.com/pygame-a-primer/
+
 import pygame
 from pygame.locals import(
     K_UP,
