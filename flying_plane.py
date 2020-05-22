@@ -24,16 +24,20 @@ class Player(pygame.sprite.Sprite):
 
 player = Player()
 
-def event_handler():
+running = True
+while running:
+    # for loop through the event queue
     for event in pygame.event.get():
-        if event.type == pygame.QUIT or (
-            event.type == pygame.KEYDOWN and (
-                event.type == pygame.K_ESCAPE or pygame.K_q
-            )):
-            pygame.quit()
-            quit()
+        # Check for KEYDOWN event
+        if event.type == KEYDOWN:
+            # If the Esc key is pressed, then exit the main loop
+            if event.key == K_ESCAPE:
+                running = False
+        # Check for QUIT event. If QUIT, then set running to false.
+        elif event.type == QUIT:
+            running = False
 
-while True:
+
     screen.fill((0, 0, 0))
 
     surf_center =(
@@ -42,17 +46,26 @@ while True:
     )
     screen.blit(player.surf, player.rect)
 
-    event_handler()
-    player.update()
+    pressed_keys = pygame.key.get_pressed()
+    player.update(pressed_keys)
+    
+    pygame.display.update()
 
-pressed_keys = pygame.key.get_pressed()
-def update(self, pressed_keys):
-    if pressed_keys[K_UP]:
-        self.rect.move_ip(0, -5)
-    if pressed_keys[K_DOWN]:
-        self.rect.move_ip(0, 5)
-    if pressed_keys[K_LEFT]:
-        self.rect.move_ip(-5, 0)
-    if pressed_keys[K_RIGHT]:
-        self.rect.move_ip(5, 0)
+    def update(self, pressed_keys):
+        if pressed_keys[K_UP]:
+            self.rect.move_ip(0, -5)
+        if pressed_keys[K_DOWN]:
+            self.rect.move_ip(0, 5)
+        if pressed_keys[K_LEFT]:
+            self.rect.move_ip(-5, 0)
+        if pressed_keys[K_RIGHT]:
+            self.rect.move_ip(5, 0)
 
+        if self.rect.left < 0: 
+            self.rect.left = 0
+        if self.rect.K_RIGHT > screen_width:
+            self.rect.right = screen_width
+        if self.rect.bottom >= screen_height:
+            self.rect.bottom = screen_height
+        if self.rect.top <= 0:
+            self.rect.top = 0
