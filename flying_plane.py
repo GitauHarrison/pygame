@@ -20,8 +20,12 @@ while True:
     surf = pygame.Surface((50, 50))
     surf.fill((0, 0, 0))
     rect = surf.get_rect()
-    screen.blit(surf, (screen_width/2, screen_height/2))
-
+    
+    surf_center =(
+        (screen_width - surf.get_width())/2,
+        (screen_height - surf.get_width())/2
+    )
+    screen.blit(surf, surf_center)
 
     event_handler()
     pygame.display.update()
