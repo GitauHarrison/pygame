@@ -22,6 +22,11 @@ soundObj.play()
 sleep(2)
 soundObj.stop()
 
+pygame.mixer.music.load('Stranger_In_the_Way.wav')
+pygame.mixer.music.play(-1, 0.0)
+sleep(4)
+pygame.mixer.music.stop()
+
 while True:
     display_surf.fill(white)
     display_surf.blit(textSurfaceObj, textRectObj)
