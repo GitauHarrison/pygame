@@ -2,6 +2,7 @@
 # basics.py - understanding the basics of pygame
 import pygame, sys
 from pygame.locals import *
+from time import sleep
 
 pygame.init()
 display_surf = pygame.display.set_mode((500, 500), 0, 32)
@@ -15,6 +16,11 @@ fontObj = pygame.font.Font('freesansbold.ttf', 32)
 textSurfaceObj = fontObj.render('Hello World', True, green, blue)
 textRectObj = textSurfaceObj.get_rect()
 textRectObj.center = (200, 150)
+
+soundObj = pygame.mixer.Sound('church_bells.wav')
+soundObj.play()
+sleep(2)
+soundObj.stop()
 
 while True:
     display_surf.fill(white)
