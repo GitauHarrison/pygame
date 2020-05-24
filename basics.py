@@ -5,35 +5,39 @@ from pygame.locals import *
 
 pygame.init()
 display_surf = pygame.display.set_mode((500, 500), 0, 32)
-pygame.display.set_caption('Basics')
+pygame.display.set_caption('Animation')
 
-black = (0, 0, 0)
+#display_surf.fill(aqua)
+fps = 30
+fps_clock = pygame.time.Clock()
+
 white = (255, 255, 255)
-red = (255, 0, 0)
-green = (0, 255, 0)
-blue = (0, 0, 255)
-aqua = (0, 255, 255)
-
-display_surf.fill(aqua)
-clock = pygame.time.Clock()
-
-pygame.draw.polygon(display_surf, green,  ((146, 0), (291, 106), (236, 277), (56, 277), (0, 106)))
-pygame.draw.line(display_surf, blue, (60,60), (120, 60), 4)
-pygame.draw.line(display_surf, blue, (120, 60), (60, 120))
-pygame.draw.line(display_surf, blue, (60, 120), (120, 120), 4)
-pygame.draw.circle(display_surf, blue, (300, 50), 20, 0)
-pygame.draw.ellipse(display_surf, red, (300, 250, 40, 80), 1)
-pygame.draw.rect(display_surf, red, (200, 150, 100, 50))
-
-pixObj = pygame.PixelArray(display_surf)
-pixObj[480][380] = black
-pixObj[482][382] = white
-pixObj[484][384] = red
-pixObj[486][386] = green
-pixObj[488][388] = blue
-del pixObj
+cat_img = pygame.image.load('cat_image.jpeg')
+cat_x = 10
+cat_y = 10
+direction = 'right'
 
 while True:
+    display_surf.fill(white)
+    if direction == 'right':
+        cat_x += 5
+        if cat_x == 280:
+            direction = 'up'
+    elif direction == 'up':
+        cat_y += 5
+        if cat_y == 220:
+            direction = 'left'
+    elif direction == 'left':
+        cat_x -= 5
+        if cat_x == 10:
+            direction = 'down'
+    elif direction == 'down':
+        cat_y -= 5
+        if cat_y == 10:
+            direction == 'right'
+    display_surf.blit(cat_img, (cat_x, cat_y))
+
+
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
