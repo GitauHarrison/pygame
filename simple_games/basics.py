@@ -7,35 +7,18 @@ pygame.init()
 display_surf = pygame.display.set_mode((500, 500), 0, 32)
 pygame.display.set_caption('Animation')
 
-#display_surf.fill(aqua)
-fps = 90
-fps_clock = pygame.time.Clock()
-
 white = (255, 255, 255)
-cat_img = pygame.image.load('cat_image.jpeg')
-cat_x = 10
-cat_y = 10
-direction = 'right'
+green = (0, 255, 0)
+blue = (0, 0, 255)
+
+fontObj = pygame.font.Font('freesansbold.ttf', 32)
+textSurfaceObj = fontObj.render('Hello World', True, green, blue)
+textRectObj = textSurfaceObj.get_rect()
+textRectObj.center = (200, 150)
 
 while True:
     display_surf.fill(white)
-    if direction == 'right':
-        cat_x += 5
-        if cat_x == 280:
-            direction = 'up'
-    elif direction == 'up':
-        cat_y += 5
-        if cat_y == 220:
-            direction = 'left'
-    elif direction == 'left':
-        cat_x -= 5
-        if cat_x == 10:
-            direction = 'down'
-    elif direction == 'down':
-        cat_y -= 5
-        if cat_y == 10:
-            direction == 'right'
-    display_surf.blit(cat_img, (cat_x, cat_y))
+    display_surf.blit(textSurfaceObj, textRectObj)
 
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -43,4 +26,3 @@ while True:
             sys.exit()
 
     pygame.display.update()
-    fps_clock.tick(fps)
