@@ -8,7 +8,7 @@ display_surf = pygame.display.set_mode((500, 500), 0, 32)
 pygame.display.set_caption('Animation')
 
 #display_surf.fill(aqua)
-fps = 30
+fps = 90
 fps_clock = pygame.time.Clock()
 
 white = (255, 255, 255)
@@ -37,10 +37,10 @@ while True:
             direction == 'right'
     display_surf.blit(cat_img, (cat_x, cat_y))
 
-
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
 
     pygame.display.update()
+    fps_clock.tick(fps)
