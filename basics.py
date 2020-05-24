@@ -25,6 +25,14 @@ pygame.draw.circle(display_surf, blue, (300, 50), 20, 0)
 pygame.draw.ellipse(display_surf, red, (300, 250, 40, 80), 1)
 pygame.draw.rect(display_surf, red, (200, 150, 100, 50))
 
+pixObj = pygame.PixelArray(display_surf)
+pixObj[480][380] = black
+pixObj[482][382] = white
+pixObj[484][384] = red
+pixObj[486][386] = green
+pixObj[488][388] = blue
+del pixObj
+
 while True:
     for event in pygame.event.get():
         if event.type == QUIT:
