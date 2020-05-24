@@ -10,11 +10,11 @@ _How can a still image on a screen appear as though it is moving?_
 
 * Learn how to load an image onto the canvas/game surface
 
-    ```python cat_img = pygame.image.load('cat_image.jpeg')```
+    ```cat_img = pygame.image.load('cat_image.jpeg')```
 
 * Learn how to use coordinates on a Cartesian Plane to position objects on the canvas/game surface
 
-    ```python 
+    ```python
     direction = 'right'
 
     while True:
