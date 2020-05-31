@@ -44,3 +44,7 @@ def main():
     pygame.init()
     fps_clock = pygame.time.Clock()
     dispay_surf = pygame.display.set_mode(window_height, window_width)
+
+    mouse_x = 0
+    mouse__y = 0
+    pygame.display.set_caption('Memory Puzzle Game')
