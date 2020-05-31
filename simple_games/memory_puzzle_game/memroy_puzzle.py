@@ -157,3 +157,12 @@ def left_top_coords_of_box(box_x, box_y):
     left = box_x * (box_size + gap_size) + x_margin
     top = box_y * (box_size + gap_size) + y_margin
     return (left, top)
+
+def getBoxAtPixel(x, y):
+    for bax_x in range(board_width):
+        for box_y in range(board_height):
+            left, top = left_top_coords_of_box(box_x, box_y)
+            box_rect = pygame.Rect(left, top, box_size, box_size)
+            if box_rect.collide_point(x, y):
+                return (box_x, box_y)
+    return (None, None)
