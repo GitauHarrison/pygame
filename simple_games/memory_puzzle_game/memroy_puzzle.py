@@ -144,3 +144,10 @@ def getRandomizedBoard():
             del icons[0] # remove icons as we assign them
         board.append(column)
     return board
+
+def splitIntoGroupsOf(group_size, the_list):
+    # split a list into a list of lists, where the inner lists have at most group_size number of items
+    result =[]
+    for i in range(0, len(the_list), group_size):
+        result.append(the_list[i:i + group_size])
+    return result
