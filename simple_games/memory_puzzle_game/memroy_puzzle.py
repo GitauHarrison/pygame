@@ -210,3 +210,8 @@ def reveal_boxes_animation(board, boxes_to_reveal):
     # Do the box reveal animation
     for coverage in range(box_size, (-reveal_speed) - 1, - reveal_speed):
         draw_box_covers(board, boxes_to_reveal, coverage)
+
+def cover_boxes_animation(board, boxes_to_cover):
+    # Do the box cover animation
+    for coverage in range(0, box_size + reveal_speed, reveal_speed):
+        draw_box_covers(board, boxes_to_cover, coverage)
