@@ -55,7 +55,7 @@ def main():
     first_selection = None
 
     display_surf.fill(bg_color)
-    startGameAnimation(main_board)
+    start_game_animation(main_board)
 
     while True:
         mouse_clicked = False
@@ -145,7 +145,7 @@ def getRandomizedBoard():
         board.append(column)
     return board
 
-def splitIntoGroupsOf(group_size, the_list):
+def split_into_groups_of(group_size, the_list):
     # split a list into a list of lists, where the inner lists have at most group_size number of items
     result =[]
     for i in range(0, len(the_list), group_size):
@@ -159,7 +159,7 @@ def left_top_coords_of_box(box_x, box_y):
     return (left, top)
 
 def getBoxAtPixel(x, y):
-    for bax_x in range(board_width):
+    for box_x in range(board_width):
         for box_y in range(board_height):
             left, top = left_top_coords_of_box(box_x, box_y)
             box_rect = pygame.Rect(left, top, box_size, box_size)
@@ -228,3 +228,22 @@ def draw_board(board, revealed):
                 # Draw the revealed icon
                 shape, color = get_shape_and_color(board, box_x, box_y)
                 drawIcon(shape, color, box_x, box_y )
+
+def draw_highlight_box(box_x, box_y):
+    left, top = left_top_coords_of_box(box_x, box_y)
+    pygame.draw.rect(display_surf, highlight_color, (left - 5, top - 5, box_size + 10, box_size + 10), 4)
+
+def start_game_animation(board):
+    # Randomly reveal the boxes 8 at a time
+    covered_boxes = generateRevealedBoxesData(False)
+    boxes = []
+    for x in range(board_width):
+        for y in range(board_height):
+            boxes.append((x, y))
+    random.shuffle(boxes)
+    box_groups = split_into_groups_of(8, boxes)
+
+    draw_board(board, covered_boxes)
+    for box_group in box_groups:
+        reveal_boxes_animation(board, box_group)
+        cover_boxes_animation(board, box_group)
