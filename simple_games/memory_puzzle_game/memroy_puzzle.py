@@ -215,3 +215,16 @@ def cover_boxes_animation(board, boxes_to_cover):
     # Do the box cover animation
     for coverage in range(0, box_size + reveal_speed, reveal_speed):
         draw_box_covers(board, boxes_to_cover, coverage)
+
+def draw_board(board, revealed):
+    # draw all the boxes in their covered or revealed state
+    for box_x in range(board_width):
+        for box_y in range(board_height):
+            left, top = left_top_coords_of_box(box_x, box_y)
+            if not revealed[box_x, box_y]:
+                # Draw a covered box
+                pygame.draw.rect(display_surf, box_color, (left, top, box_size, box_size))
+            else:
+                # Draw the revealed icon
+                shape, color = get_shape_and_color(board, box_x, box_y)
+                drawIcon(shape, color, box_x, box_y )
