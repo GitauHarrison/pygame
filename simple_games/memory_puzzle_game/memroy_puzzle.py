@@ -188,3 +188,22 @@ def drawIcon(shape, color, box_x, box_y):
     elif shape == oval:
         pygame.draw.ellipse(display_surf, color, (left, top + quarter, box_size, half))
 
+def get_shape_and_color(board, box_x, box_y):
+    # shape value for x,y spot is stored in board[x][y][0]
+    #color value for x,y spot is stored in board[x][y][1]
+    return board[box_x][box_y][0], board[box_x][box_y][1]
+
+def draw_box_covers(board, boxes, coverage):
+    # Draw boxes being covered/revealed
+    # 'boxes' is a list of two-item lists, which have the x & y spot of the box
+    for box in boxes:
+        left, top = left_top_coords_of_box(box[0], box[1])
+        pygame.draw.rect(display_surf, bg_color, (left,top, box_size, box_size))
+        shape, color = get_shape_and_color(board, (box[0], box[1]))
+        drawIcon(shape, color, box[0], box[1])
+        if coverage > 0: #only draw the cover if there is a coverage
+            pygame.draw.rect(display_surf, box_color, (left, top, coverage, box_size))
+    pygame.display.update()
+    fps_clock.tick(fps)
+
+    
