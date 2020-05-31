@@ -134,3 +134,13 @@ def getRandomizedBoard():
     num_icons_used = int(board_width * board_height / 2) # calculate how many icons are needed
     icons = icons[:num_icons_used] * 2 # make two of each
     random.shuffle(icons)
+
+    # create the board data structure, with randomly placed icons
+    board = []
+    for x in range(board_width):
+        column = []
+        for y in range(board_height):
+            column.append(icons[0])
+            del icons[0] # remove icons as we assign them
+        board.append(column)
+    return board
