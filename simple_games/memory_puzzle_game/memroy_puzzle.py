@@ -50,7 +50,7 @@ def main():
     pygame.display.set_caption('Memory Puzzle Game')
 
     main_board = getRandomizedBoard()
-    revealed_boxes = generateREvealedBoxesData(False)
+    revealed_boxes = generateRevealedBoxesData(False)
 
     first_selection = None
 
@@ -72,3 +72,34 @@ def main():
             elif event.type == MOUSEBUTTONUP:
                 mouse_x, mouse__y = event.pos
                 mouse_clicked = True
+        
+        box_x, box_y = getBoXAtPixel(mouse_x, mouse__y)
+        if box_x != None and box_y != None:
+            # if mouse is currently over a box
+            if not revealed_boxes[box_x][box_y]:
+                draw_highlight_box(box_x, box_y)
+            if not revealed_boxes[box_x][box_y] and mouse_clicked:
+                revealed_boxes_animation(main_board, [box_x, box_y])
+                revealed_boxes[box_x][box_y] = True # set the box as revealed
+
+                # the current box was the first box clicked
+                if first_selection == None:
+                    first_selection  = box_x, box_y
+                # the current box was the second box clicked
+                else:
+                    # check if there was a match between the two icons
+                    icon_1_shape, icon_1_color = get_shape_and_color(main_board, first_selection[0], first_selection[1])
+                    icon_2_shape, icon_2_color = get_shape_and_color(main_board, box_x, box_y)
+
+                    if icon_1_shape != icon_2_shape or icon_1_color != icon_2_color:
+                        pygame.time.wait(1000)            
+                        cover_boxes_animation(main_board, [(first_selection[0], first_selection[1]), box_x, box_y])
+                        revealed_boxes[first_selection[0]][first_selection[1]] = False
+                        revealed_boxes[box_x, box_y] = False
+                    elif hasWon(revealed_boxes):
+                        game_won_animation(main_board)
+                        pygame.time.wait(1000)
+
+                        # Reset the board
+                        main_board = getRandomizedBoard()
+                        revealed_boxes = generateRevealedBoxesData(False)
