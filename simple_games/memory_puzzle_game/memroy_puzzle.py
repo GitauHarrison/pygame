@@ -151,3 +151,9 @@ def splitIntoGroupsOf(group_size, the_list):
     for i in range(0, len(the_list), group_size):
         result.append(the_list[i:i + group_size])
     return result
+
+def left_top_coords_of_box(box_x, box_y):
+    # convert board coordinates to pixel coordinates 
+    left = box_x * (box_size + gap_size) + x_margin
+    top = box_y * (box_size + gap_size) + y_margin
+    return (left, top)
