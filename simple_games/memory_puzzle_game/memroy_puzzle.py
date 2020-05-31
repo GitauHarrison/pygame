@@ -260,3 +260,11 @@ def game_won_animation(board):
         draw_board(board, covered_boxes)
         pygame.display.update()
         pygame.time.wait(300)
+
+def has_won(revealed_boxes):
+    # returns true if all boxes have been revealed, otherwise False
+    for i in revealed_boxes:
+        if False in i:
+            return False # returns false if any boxes are uncovered
+    return True
+
