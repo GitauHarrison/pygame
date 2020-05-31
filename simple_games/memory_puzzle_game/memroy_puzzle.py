@@ -30,3 +30,7 @@ box_color = white
 highlight_color = blue
 
 donut = 'donut'
+square = 'square'
+diamond = 'diamond'
+lines = 'lines'
+oval = 'oval'
