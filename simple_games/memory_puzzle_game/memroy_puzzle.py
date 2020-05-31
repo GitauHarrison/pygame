@@ -38,3 +38,9 @@ oval = 'oval'
 all_colors = (red, green, blue, yellow, orange, purple, cyan)
 all_shapes = (donut, square, diamond, lines, oval)
 assert len(all_colors) * len(all_shapes) * 2 >= board_width * board_height, 'Board is too big for the number of shapes/colors defined'
+
+def main():
+    global fps_clock, display_surf
+    pygame.init()
+    fps_clock = pygame.time.Clock()
+    dispay_surf = pygame.display.set_mode(window_height, window_width)
