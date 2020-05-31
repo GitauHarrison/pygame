@@ -116,4 +116,10 @@ def main():
         # redraw the screen and wait for a clock tick
         pygame.display.update()
         fps_clock.tick(fps)
-``
+
+def generateRevealedBoxesData(val):
+    revealed_boxes = []
+    for i in range (board_width):
+        revealed_boxes.append([val] * board_height)
+    return revealed_boxes
+
