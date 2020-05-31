@@ -34,3 +34,7 @@ square = 'square'
 diamond = 'diamond'
 lines = 'lines'
 oval = 'oval'
+
+all_colors = (red, green, blue, yellow, orange, purple, cyan)
+all_shapes = (donut, square, diamond, lines, oval)
+assert len(all_colors) * len(all_shapes) * 2 >= board_width * board_height, 'Board is too big for the number of shapes/colors defined'
