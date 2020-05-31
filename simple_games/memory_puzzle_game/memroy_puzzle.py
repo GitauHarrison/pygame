@@ -61,7 +61,7 @@ def main():
         mouse_clicked = False
 
         display_surf.fill(bg_color)
-        drawBoard(main_board, revealed_boxes)
+        draw_Board(main_board, revealed_boxes)
 
         for event in pygame.event.get():
             if event.type == QUIT or (event.type == KEYUP and event.type == K_ESCAPE):
@@ -96,7 +96,7 @@ def main():
                         cover_boxes_animation(main_board, [(first_selection[0], first_selection[1]), box_x, box_y])
                         revealed_boxes[first_selection[0]][first_selection[1]] = False
                         revealed_boxes[box_x, box_y] = False
-                    elif hasWon(revealed_boxes):
+                    elif has_won(revealed_boxes):
                         game_won_animation(main_board)
                         pygame.time.wait(1000)
 
@@ -247,3 +247,16 @@ def start_game_animation(board):
     for box_group in box_groups:
         reveal_boxes_animation(board, box_group)
         cover_boxes_animation(board, box_group)
+
+def game_won_animation(board):
+    # flash the background color when player has won
+    covered_boxes = generateRevealedBoxesData(True)
+    color_1 = light_bg_color
+    color_2 = bg_color
+
+    for i in range (13):
+        color_1, color_2 = color_2, color_1 # swap colors
+        display_surf.fill(color_1)
+        draw_board(board, covered_boxes)
+        pygame.display.update()
+        pygame.time.wait(300)
