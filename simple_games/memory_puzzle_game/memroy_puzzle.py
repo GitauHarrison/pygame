@@ -123,3 +123,9 @@ def generateRevealedBoxesData(val):
         revealed_boxes.append([val] * board_height)
     return revealed_boxes
 
+def getRandomizedBoard():
+    # get a list of every possible shape in every possible color
+    icons = []
+    for color in all_colors:
+        for shape in all_shapes:
+            icons.append((shape, color))
