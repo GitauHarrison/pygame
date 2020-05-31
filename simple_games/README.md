@@ -1,12 +1,12 @@
 # Basic Games
 
-**Game Demo**
+## Game Demo
 
 Learn how to create a simple animation using ```pygame```. For example:
 
-_How can a still image on a screen appear as though it is moving?_
+**_How can a still image on a screen appear as though it is moving?_**
 
-![Make a still cat image appear as though it is moving aroung](simple_cat_animation.png)
+![Make a still cat image appear as though it is moving aroung](static_files/img/simple_cat_animation.png)
 
 * Learn how to load an image onto the canvas/game surface
 
