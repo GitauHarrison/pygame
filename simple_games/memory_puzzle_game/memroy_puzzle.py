@@ -129,3 +129,8 @@ def getRandomizedBoard():
     for color in all_colors:
         for shape in all_shapes:
             icons.append((shape, color))
+
+    random.shuffle(icons) # randomize the order of the icons list
+    num_icons_used = int(board_width * board_height / 2) # calculate how many icons are needed
+    icons = icons[:num_icons_used] * 2 # make two of each
+    random.shuffle(icons)
