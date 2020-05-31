@@ -103,3 +103,17 @@ def main():
                         # Reset the board
                         main_board = getRandomizedBoard()
                         revealed_boxes = generateRevealedBoxesData(False)
+
+                        # Show the fully unrevealed board for a second
+                        draw_board(main_board, revealed_boxes)
+                        pygame.display.update()
+                        pygame.time.wait(1000)
+
+                        # Replay the start game animation
+                        start_game_animation(main_board)
+                    first_selection = None # reset first selection variable
+        
+        # redraw the screen and wait for a clock tick
+        pygame.display.update()
+        fps_clock.tick(fps)
+``
