@@ -1,5 +1,5 @@
 import pygame, random, sys
-from pygame import locals
+from pygame.locals import *
 
 fps = 30
 window_width = 640
@@ -62,3 +62,13 @@ def main():
 
         display_surf.fill(bg_color)
         drawBoard(main_board, revealed_boxes)
+
+        for event in pygame.event.get():
+            if event.type == QUIT or (event.type == KEYUP and event.type == K_ESCAPE):
+                pygame.quit()
+                sys.exit()
+            elif event.type == MOUSEMOTION:
+                mouse_x, mouse_x = event.pos
+            elif event.type == MOUSEBUTTONUP:
+                mouse_x, mouse__y = event.pos
+                mouse_clicked = True
