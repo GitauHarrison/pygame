@@ -268,3 +268,5 @@ def has_won(revealed_boxes):
             return False # returns false if any boxes are uncovered
     return True
 
+if __name__ == '__main__':
+    main()
