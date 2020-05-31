@@ -48,3 +48,17 @@ def main():
     mouse_x = 0
     mouse__y = 0
     pygame.display.set_caption('Memory Puzzle Game')
+
+    main_board = getRandomizedBoard()
+    revealed_boxes = generateREvealedBoxesData(False)
+
+    first_selection = None
+
+    display_surf.fill(bg_color)
+    startGameAnimation(main_board)
+
+    while True:
+        mouse_clicked = False
+
+        display_surf.fill(bg_color)
+        drawBoard(main_board, revealed_boxes)
