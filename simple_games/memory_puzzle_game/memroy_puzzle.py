@@ -166,3 +166,25 @@ def getBoxAtPixel(x, y):
             if box_rect.collide_point(x, y):
                 return (box_x, box_y)
     return (None, None)
+
+def drawIcon(shape, color, box_x, box_y):
+    quarter = int((box_size * 0.25)) # syntactic sugar
+    half = int(box_size * 0.5) # syntactic sugar
+
+    left, top = left_top_coords_of_box(box_x, box_y) # get pixel coordinates from board coordinates
+
+    # draw the shapes
+    if shape == donut:
+        pygame.draw.circle(display_surf, color, (left + half, top + half), half - 5)
+        pygame.draw.circle(display_surf, bg_color, (left + half, top + half), quarter - 5)
+    elif shape == square:
+        pygame.draw.rect(display_surf, color, (left + quarter, top + quarter, box_size - half, box_size - half))
+    elif shape == diamond:
+        pygame.draw.polygon(display_surf, color, ((left + half, top), (left + box_size - 1, top + half), (left + half, top + box_size - 1), (left, top + half)))
+    elif shape == lines:
+        for i in range(0, box_size, 4):
+            pygame.draw.line(display_surf, color, (left, top + i), (left + i, top))
+            pygame.draw.line(display_surf, color, (left + i, top + box_size - 1), (left + box_size - 1, top + i))
+    elif shape == oval:
+        pygame.draw.ellipse(display_surf, color, (left, top + quarter, box_size, half))
+
