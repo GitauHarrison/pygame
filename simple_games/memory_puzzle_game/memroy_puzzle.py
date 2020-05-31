@@ -4,7 +4,7 @@ from pygame.locals import *
 fps = 30
 window_width = 640
 window_height = 460
-revealed_speed = 8
+reveal_speed = 8
 box_size = 40
 gap_size = 10
 board_width = 10
@@ -79,7 +79,7 @@ def main():
             if not revealed_boxes[box_x][box_y]:
                 draw_highlight_box(box_x, box_y)
             if not revealed_boxes[box_x][box_y] and mouse_clicked:
-                revealed_boxes_animation(main_board, [box_x, box_y])
+                reveal_boxes_animation(main_board, [box_x, box_y])
                 revealed_boxes[box_x][box_y] = True # set the box as revealed
 
                 # the current box was the first box clicked
@@ -206,4 +206,7 @@ def draw_box_covers(board, boxes, coverage):
     pygame.display.update()
     fps_clock.tick(fps)
 
-    
+def reveal_boxes_animation(board, boxes_to_reveal):
+    # Do the box reveal animation
+    for coverage in range(box_size, (-reveal_speed) - 1, - reveal_speed):
+        draw_box_covers(board, boxes_to_reveal, coverage)
